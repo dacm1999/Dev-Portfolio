@@ -2,6 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Bagde from "../components/Bagde.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import LinkedIn from "../components/icons/LinkedInIcon.astro";
+import SocialNetworks from "../components/SocialNetworks.astro";
+import GmailIcon from "../components/icons/EmailIcon.astro";
+import CopyEmailScript from "../components/scripts/CopyEmailScript.astro";
+import EmailIcon from "../components/icons/EmailIcon.astro";
 ---
 
 <Layout title="dacm portfolio.">
@@ -33,6 +39,24 @@ import Bagde from "../components/Bagde.astro";
         problemas. Si tienes alguna pregunta o estás interesado en colaborar en
         un proyecto, ¡no dudes en ponerte en contacto conmigo!
       </h2>
+
+      <nav class="flex gap-x-2 mt-4">
+        <SocialNetworks href="https://www.linkedin.com/in/dacm1">
+          <LinkedIn class="w-6 h-6" />
+          LinkedIn
+        </SocialNetworks>        
+		<SocialNetworks href="https://github.com/dacm1999">
+          <GithubIcon class="w-6 h-6" />
+          Github
+        </SocialNetworks>
+		<SocialNetworks id="copyEmail">
+			<EmailIcon class="w-6 h-6" />
+			dacm.dev@icloud.com
+		</SocialNetworks>
+      </nav>
     </section>
+
+
+
   </main>
 </Layout>

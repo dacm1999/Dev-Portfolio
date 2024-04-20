@@ -73,4 +73,23 @@ const { title } = Astro.props;
     font-size: 1.5rem;
     margin-top: 1.5rem;
   }
+
+  li {
+    color: white;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .copied-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+  }
 </style>

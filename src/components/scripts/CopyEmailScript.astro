@@ -1,0 +1,17 @@
+<!-- CopyEmailScript.astro
+---
+<client:only>
+  <script>
+    const copyEmailContainer = document.getElementById('copyEmail');
+
+    copyEmailContainer.addEventListener('click', function() {
+      const email = 'danielcontreras12.dc@gmail.com';
+      navigator.clipboard.writeText(email).then(function() {
+        alert('Correo electrónico copiado: ' + email);
+      }).catch(function(error) {
+        console.error('Error al copiar el correo electrónico: ', error);
+      });
+      }
+  </script>
+</client:only>
+--- -->
