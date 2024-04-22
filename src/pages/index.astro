@@ -1,20 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Bagde from "../components/Bagde.astro";
 import GithubIcon from "../components/icons/GithubIcon.astro";
 import LinkedIn from "../components/icons/LinkedInIcon.astro";
 import SocialNetworks from "../components/SocialNetworks.astro";
-import GmailIcon from "../components/icons/EmailIcon.astro";
-import CopyEmailScript from "../components/scripts/CopyEmailScript.astro";
 import EmailIcon from "../components/icons/EmailIcon.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Briefcase from "../components/Briefcase.astro";
 ---
 
-<Layout title="dacm portfolio.">
+<Layout
+  title="dacm - dev portfolio"
+  description="Desarrollador backend -> JAVA, Spring Boot, JUnit."
+>
   <main>
-    <section class="w-full mx-auto lg:w-[740px] py-44">
+    <SectionContainer class="py-5 pb-24">
       <img
-        class="rounded-full w-12 h-12"
+        class="rounded-full size-12 mb-4"
         src="/images/me.png"
         alt="dacm photo"
       />
@@ -42,21 +45,28 @@ import EmailIcon from "../components/icons/EmailIcon.astro";
 
       <nav class="flex gap-x-2 mt-4">
         <SocialNetworks href="https://www.linkedin.com/in/dacm1">
-          <LinkedIn class="w-6 h-6" />
+          <LinkedIn class="size-6" />
           LinkedIn
-        </SocialNetworks>        
-		<SocialNetworks href="https://github.com/dacm1999">
-          <GithubIcon class="w-6 h-6" />
+        </SocialNetworks>
+        <SocialNetworks href="https://github.com/dacm1999">
+          <GithubIcon class="size-6" />
           Github
         </SocialNetworks>
-		<SocialNetworks id="copyEmail">
-			<EmailIcon class="w-6 h-6" />
-			dacm.dev@icloud.com
-		</SocialNetworks>
+        <SocialNetworks id="copyEmail">
+          <EmailIcon class="size-6" />
+          dacm.dev@icloud.com
+        </SocialNetworks>
       </nav>
-    </section>
+    </SectionContainer>
 
-
-
+    <SectionContainer id="experiencia">
+      <h2
+        class="text-2xl font-semibold flex gap-x-3 items-center"
+      >
+      <Briefcase class="size-8"></Briefcase>
+        Experiencia laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
   </main>
 </Layout>

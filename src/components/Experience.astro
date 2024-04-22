@@ -1,0 +1,24 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCIE = [
+  {
+    date: "Septiembre - Diciembre 2023",
+    title: "Desarrollador FullStack",
+    company: "SST Smart",
+    description: [
+    "Desarrollo y mantenimiento full stack de aplicaciones Android (Java) y web (CSS, HTML, JavaScript, Laravel), optimización de rendimiento, integración de APIs externas, y garantía de seguridad y compatibilidad."
+    ],
+    link: "https://www.sstsmart.es/",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>
