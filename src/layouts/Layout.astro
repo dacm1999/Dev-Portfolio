@@ -45,6 +45,7 @@ const { description, title } = Astro.props;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    scroll-behavior: smooth;
   }
   nav {
     color: white; /* Cambiar el color del texto a blanco */
@@ -93,5 +94,12 @@ const { description, title } = Astro.props;
     padding: 10px 20px;
     border-radius: 5px;
     z-index: 9999;
+  }
+
+  /* Scroll automatic */
+  @media(prefers-reduced-motion: reduce){
+    html {
+      scroll-behavior: auto;
+    }
   }
 </style>
