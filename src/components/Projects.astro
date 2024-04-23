@@ -7,6 +7,29 @@ import GithubIcon from "./icons/GithubIcon.astro";
 import LinkIcon from "./icons/LinkIcon.astro";
 import IntelliJIcon from "./icons/IntelliJIcon.astro";
 
+const TAGS = {
+  JAVA: {
+    name: "Java",
+    class: "bg-black text-white",
+    icon: JavaIcon,
+  },
+  SpringBoot: {
+    name: "Spring Boot",
+    class: "bg-[#003159] text-white",
+    icon: SpringBootIcon,
+  },
+  MySQL: {
+    name: "MySQL",
+    class: "bg-[#00758F] text-white",
+    icon: MySQLIcon,
+  },
+  IntelliJ: {
+    name: "IntelliJ IDEA",
+    class: "bg-[#00758F] text-white",
+    icon: IntelliJIcon,
+  },
+};
+
 const PROJECTS = [
   {
     title: "Gestor de Tareas con Spring Boot y MySQL",
@@ -15,22 +38,37 @@ const PROJECTS = [
     link: "",
     github: "https://github.com/dacm1999/API-Rest-SpringBoot-MySQL-TaskManager",
     image: "/projects/spring-jpa-mysql2-large.webp",
-    tags: ["JAVA", "SpringBoot", "MySQL", "IntelliJ"],
+    tags: [TAGS.JAVA, TAGS.SpringBoot, TAGS.MySQL, TAGS.IntelliJ],
   },
 ];
 ---
 
 {
-  PROJECTS.map(({ image,title, description, tags }) => (
-    <article>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <ul>
-        {tags.map(tag =>(
-            <li>{tag}</li>
-        ))}
-      </ul>
-      <img src={image} alt={"Captura de pantalla del proyecto ${image}"} />
-    </article>
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <>
+      <article class="relative mt-16">
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+        <p class="text-lg mb-2 text-pretty text-white justify-center">
+          {description}
+        </p>
+        <ul class="flex gap-x-4 flex-row mb-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </article>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={"Captura de pantalla del proyecto ${image}"}
+      />
+    </>
   ))
 }
