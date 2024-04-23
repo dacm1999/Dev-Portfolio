@@ -8,6 +8,10 @@ import EmailIcon from "../components/icons/EmailIcon.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Briefcase from "../components/Briefcase.astro";
+import CodeIcon from "../components/icons/CodeIcon.astro";
+import Proyects from "../components/Projects.astro";
+import Projects from "../components/Projects.astro";
+import Projects3 from "../components/Projects3.astro";
 ---
 
 <Layout
@@ -15,7 +19,7 @@ import Briefcase from "../components/Briefcase.astro";
   description="Desarrollador backend -> JAVA, Spring Boot, JUnit."
 >
   <main class="px-4">
-    <SectionContainer class="py-5 pb-24">
+    <SectionContainer class="py-44 pb-32">
       <img
         class="rounded-full size-12 mb-4"
         src="/images/me.png"
@@ -61,14 +65,25 @@ import Briefcase from "../components/Briefcase.astro";
       </nav>
     </SectionContainer>
 
+    <!-- Experience -->
     <SectionContainer id="experiencia">
       <h2 class="text-2xl font-semibold flex gap-x-3 items-center">
         <!-- Icon -->
-        <Briefcase class="size-8" />
+        <Briefcase class="size-7" />
         Experiencia laboral
       </h2>
-      <!-- Experience -->
       <Experience />
+    </SectionContainer> 
+    
+    <SectionContainer id="experiencia">
+      <h2 class="text-2xl font-semibold flex gap-x-3 items-center">
+        <!-- Icon -->
+        <CodeIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
     </SectionContainer>
+
+
   </main>
 </Layout>

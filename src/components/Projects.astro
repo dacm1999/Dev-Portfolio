@@ -1,0 +1,36 @@
+---
+import JavaIcon from "./icons/JavaIcon.astro";
+import SpringBootIcon from "./icons/SpringBootIcon.astro";
+import MySQLIcon from "./icons/MySQLIcon.astro";
+import LinkButton from "./LinkButton.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkIcon from "./icons/LinkIcon.astro";
+import IntelliJIcon from "./icons/IntelliJIcon.astro";
+
+const PROJECTS = [
+  {
+    title: "Gestor de Tareas con Spring Boot y MySQL",
+    description:
+      "Este proyecto es una API RESTful desarrollada en Spring Boot y Java 17, diseñada para facilitar la gestión eficiente de tareas diarias. Incorpora funcionalidades como autenticación segura de usuarios, gestión de tareas por estado y prioridad, asignación de etiquetas para una mejor organización, y notificaciones de recordatorios. Utiliza Spring Security para robustecer la seguridad y Spring Data JPA para la interacción con una base de datos MySQL, asegurando una gestión eficiente y segura de los datos.",
+    link: "",
+    github: "https://github.com/dacm1999/API-Rest-SpringBoot-MySQL-TaskManager",
+    image: "/projects/spring-jpa-mysql2-large.webp",
+    tags: ["JAVA", "SpringBoot", "MySQL", "IntelliJ"],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ image,title, description, tags }) => (
+    <article>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <ul>
+        {tags.map(tag =>(
+            <li>{tag}</li>
+        ))}
+      </ul>
+      <img src={image} alt={"Captura de pantalla del proyecto ${image}"} />
+    </article>
+  ))
+}
