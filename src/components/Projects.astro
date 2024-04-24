@@ -6,6 +6,8 @@ import LinkButton from "./LinkButton.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 import Link from "./Link.astro";
 import IntelliJIcon from "./icons/IntelliJIcon.astro";
+import JwtIcon from "./icons/JwtIcon.astro";
+import PostmanIcon from "./icons/PostmanIcon.astro";
 
 const TAGS = {
   JAVA: {
@@ -28,17 +30,27 @@ const TAGS = {
     class: "bg-[#00758F] text-white",
     icon: IntelliJIcon,
   },
+  JWT: {
+    name: "JWT",
+    class: "bg-[#00758F] text-white",
+    icon: JwtIcon,
+  },  
+  Postman: {
+    name: "Postman",
+    class: "bg-[#00758F] text-white",
+    icon: PostmanIcon,
+  },
 };
 
 const PROJECTS = [
   {
     title: "Gestor de Tareas con Spring Boot y MySQL",
     description:
-      "Este proyecto es una API RESTful desarrollada en Spring Boot y Java 17, diseñada para facilitar la gestión eficiente de tareas diarias. Incorpora funcionalidades como autenticación segura de usuarios, gestión de tareas por estado y prioridad, asignación de etiquetas para una mejor organización, y notificaciones de recordatorios. Utiliza Spring Security para robustecer la seguridad y Spring Data JPA para la interacción con una base de datos MySQL, asegurando una gestión eficiente y segura de los datos.",
+      "Este proyecto es una API RESTful desarrollada en Spring Boot y Java 17, diseñada para facilitar la gestión eficiente de tareas diarias. Incorpora funcionalidades como autenticación segura de usuarios y roles, gestión de tareas por estado y prioridad, asignación de etiquetas para una mejor organización, y notificaciones de recordatorios. Utiliza Spring Security para robustecer la seguridad y Spring Data JPA para la interacción con una base de datos MySQL, asegurando una gestión eficiente y segura de los datos, aparte utiliza dependencias como JWT, Lombok, DevTools, Web.",
     link: "",
     github: "https://github.com/dacm1999/API-Rest-SpringBoot-MySQL-TaskManager",
     image: "/projects/spring-jpa-mysql2.webp",
-    tags: [TAGS.JAVA, TAGS.SpringBoot, TAGS.MySQL, TAGS.IntelliJ],
+    tags: [TAGS.JAVA, TAGS.SpringBoot, TAGS.MySQL, TAGS.JWT, TAGS.Postman ,TAGS.IntelliJ],
   },
 ];
 ---
@@ -46,50 +58,56 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Logo" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-    </div>
-  </div>
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt="Logo"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row flex-wrap mb-2 gap-x-2 gap-y-2">
+              {tags.map((tag) => (
+                <li ={tag.name}>
+                  <span
+                    class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                  >
+                    <tag.icon className="h-4 w-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GithubIcon class="size-6" />
-              Code 
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
-  </div>
-</article>
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GithubIcon class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
     ))
   }
 </div>
