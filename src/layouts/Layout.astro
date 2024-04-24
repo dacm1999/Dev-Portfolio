@@ -2,6 +2,7 @@
 import "@fontsource-variable/onest";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -20,21 +21,27 @@ const { description, title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
 
-  <body>
-    <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
+  <body class="relative text-black dark:text-white">
+    <div
+      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-neutral-950
+      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
     </div>
     <Header />
     <slot />
     <Footer />
     <style is:global>
       :root {
-        color-scheme: dark light;
+        color-scheme: light dark;
       }
 
       html {
         font-family: "Onest Variable", system-ui, sans-serif;
+        scroll-behavior: smooth;
       }
 
       body {
@@ -44,52 +51,65 @@ const { description, title } = Astro.props;
         min-height: 100vh;
         overscroll-behavior: none;
       }
-      nav {
-        color: white; /* Cambiar el color del texto a blanco */
-      }
 
-      nav a {
-        margin-right: 42px; /* Añadir separación de 42px entre los elementos de la lista */
-      }
-
-      /* Estilos adicionales solo para nav a */
-      nav a.flex.flex-row.gap-x-10.opacity-80 {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        opacity: 0.8;
-      }
-      h2 {
-        color: white;
-      }
-
-      /* li {
-        color: white;
-        font-size: 1.25rem;
-        margin-top: 1rem;
-      } */
-
-      .copied-message {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.8);
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        z-index: 9999;
-      }
-
-      /* Scroll automatic */
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
         }
       }
 
-      
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+
+      #header-nav {
+        animation: blur linear both 0.5s;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+    
+
+      @keyframes blur {
+        to {
+          backdrop-filter: blur(20px);
+          border-width: 1px;
+          border-color: rgba(0, 0, 0);
+          padding: 0.25rem 0.75rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background-color: rgb(229, 229, 229);
+          border-radius: 9999px;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        @keyframes blur {
+          from {
+            border: 0px;
+          }
+          to {
+            box-shadow:
+              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+              0px 0px 0 1px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-width: 1px;
+            border-color: rgba(0, 0, 0);
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 9999px;
+          }
+        }
+      }
     </style>
   </body>
 </html>
