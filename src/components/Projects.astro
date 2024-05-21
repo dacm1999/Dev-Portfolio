@@ -8,6 +8,10 @@ import Link from "./Link.astro";
 import IntelliJIcon from "./icons/IntelliJIcon.astro";
 import JwtIcon from "./icons/JwtIcon.astro";
 import PostmanIcon from "./icons/PostmanIcon.astro";
+import KafkaIcon from "./icons/KafkaIcon.astro";
+import DockerIcon from "./icons/DockerIcon.astro";
+import SwaggerIcon from "./icons/SwaggerIcon.astro";
+import MongoDBIcon from "./icons/MongoDBIcon.astro";
 
 const TAGS = {
   JAVA: {
@@ -39,7 +43,28 @@ const TAGS = {
     name: "Postman",
     class: "bg-[#00758F] text-white",
     icon: PostmanIcon,
+  },  
+  Kafka: {
+    name: "Kafka",
+    class: "bg-[#00758F] text-white",
+    icon: KafkaIcon,
   },
+  Docker: {
+    name: "Docker",
+    class: "bg-[#00758F] text-white",
+    icon: DockerIcon,
+  },  
+  Swagger: {
+    name: "Swagger",
+    class: "bg-[#00758F] text-white",
+    icon: SwaggerIcon,
+  },  
+  MongoDB: {
+    name: "MongoDB",
+    class: "bg-[#00758F] text-white",
+    icon: MongoDBIcon,
+  },
+
 };
 
 const PROJECTS = [
@@ -51,6 +76,15 @@ const PROJECTS = [
     github: "https://github.com/dacm1999/API-Rest-SpringBoot-MySQL-TaskManager",
     image: "/projects/spring-jpa-mysql2.webp",
     tags: [TAGS.JAVA, TAGS.SpringBoot, TAGS.MySQL, TAGS.JWT, TAGS.Postman ,TAGS.IntelliJ],
+  },  
+  {
+    title: "CoWorkingBooking - Arquitectura Hexagonal",
+    description:
+      "CoWorkingBooking es una aplicación integral para gestionar reservas de coworking de forma eficiente y segura. Combina una arquitectura modular (Hexagonal), un marco de desarrollo eficaz (SpringBoot), una base de datos escalable (MongoDB), una API flexible (REST), una plataforma de contenedores portátil (Docker), un sistema de mensajería asíncrono (Kafka) y documentación completa (Swagger Doc).",
+    link: "",
+    github: "https://github.com/dacm1999/HexagonalArchitecture-SpringBoot-MongoDB-CoWorkBooking",
+    image: "/projects/hexagonal-mongodb.webp",
+    tags: [TAGS.JAVA, TAGS.SpringBoot, TAGS.JWT, TAGS.Postman ,TAGS.IntelliJ, TAGS.Kafka, TAGS.Docker, TAGS.Swagger, TAGS.MongoDB],
   },
 ];
 ---
