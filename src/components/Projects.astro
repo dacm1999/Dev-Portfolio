@@ -12,6 +12,7 @@ import KafkaIcon from "./icons/KafkaIcon.astro";
 import DockerIcon from "./icons/DockerIcon.astro";
 import SwaggerIcon from "./icons/SwaggerIcon.astro";
 import MongoDBIcon from "./icons/MongoDBIcon.astro";
+import JUnitIcon from "./icons/JUnitIcon.astro";
 
 const TAGS = {
   JAVA: {
@@ -63,8 +64,12 @@ const TAGS = {
     name: "MongoDB",
     class: "bg-[#00758F] text-white",
     icon: MongoDBIcon,
-  },
-
+  },  
+  JUnit5: {
+    name: "JUnit 5",
+    class: "bg-[#00758F] text-white",
+    icon: JUnitIcon,
+  }
 };
 
 const PROJECTS = [
@@ -84,7 +89,7 @@ const PROJECTS = [
     link: "",
     github: "https://github.com/dacm1999/HexagonalArchitecture-SpringBoot-MongoDB-CoWorkBooking",
     image: "/projects/hexagonal-mongodb.webp",
-    tags: [TAGS.JAVA, TAGS.SpringBoot, TAGS.JWT, TAGS.Postman ,TAGS.IntelliJ, TAGS.Kafka, TAGS.Docker, TAGS.Swagger, TAGS.MongoDB],
+    tags: [TAGS.JAVA, TAGS.SpringBoot, TAGS.JWT, TAGS.Postman ,TAGS.IntelliJ, TAGS.Kafka, TAGS.Docker, TAGS.Swagger, TAGS.MongoDB, TAGS.JUnit5],
   },
 ];
 ---
